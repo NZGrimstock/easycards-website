@@ -1,0 +1,152 @@
+import { CheckCircle, ArrowRight } from 'lucide-react'
+
+const included = [
+  'Full admin web portal',
+  'Unlimited job cards',
+  'Real-time mobile app for techs',
+  'Parts & labour tracking',
+  'Xero invoicing integration',
+  'Push notifications',
+  'Job history & reporting',
+  'Email support',
+]
+
+function PriceTag({
+  normal,
+  intro,
+  period = '/month',
+  featured = false,
+}: {
+  normal: string
+  intro: string
+  period?: string
+  featured?: boolean
+}) {
+  return (
+    <div className="mb-1">
+      <div className="flex items-center gap-2 mb-0.5">
+        <span className={`text-sm line-through ${featured ? 'text-brand-300' : 'text-slate-500'}`}>
+          {normal}
+        </span>
+        <span className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${featured ? 'bg-white/20 text-white' : 'bg-brand-600/15 text-brand-600'}`}>
+          Intro offer
+        </span>
+      </div>
+      <div className="flex items-end gap-1">
+        <span className={`text-4xl font-extrabold ${featured ? 'text-white' : 'text-white'}`}>{intro}</span>
+        <span className={`pb-1 ${featured ? 'text-brand-200' : 'text-slate-400'}`}>{period}</span>
+      </div>
+    </div>
+  )
+}
+
+export default function Pricing() {
+  return (
+    <section id="pricing" className="bg-slate-900 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            Simple pricing
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Pay only for what you use
+          </h2>
+          <p className="mt-4 text-lg text-slate-400 leading-relaxed">
+            One flat rate for the admin portal, then a small monthly fee per technician. No
+            surprises, no lock-in.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-4 gap-6 items-stretch">
+
+          {/* Admin seat */}
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">Admin portal</h3>
+            <PriceTag normal="$49" intro="$25" period="/month" />
+            <p className="text-sm text-slate-500 mb-6">One admin seat included</p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Full access to the admin dashboard — create jobs, assign techs, view all reports,
+              and manage your workshop from any browser.
+            </p>
+          </div>
+
+          {/* Per technician — featured */}
+          <div className="bg-brand-600 rounded-2xl border border-brand-500 p-7 shadow-2xl shadow-brand-600/30 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold mb-3">
+                28-day free trial
+              </div>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-brand-200 mb-3">Per technician</h3>
+              <PriceTag normal="$15" intro="$10" period="/month each" featured />
+              <p className="text-sm text-brand-200 mb-6">Add as many techs as you need</p>
+
+              <ul className="space-y-2.5 mb-8">
+                {included.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-white/90">
+                    <CheckCircle size={15} className="text-brand-200 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#contact"
+                className="block text-center py-3.5 rounded-xl bg-white hover:bg-slate-50 text-brand-700 font-bold transition-colors text-sm"
+              >
+                Start free trial
+              </a>
+            </div>
+          </div>
+
+          {/* WOF add-on */}
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">WOF module</h3>
+            <PriceTag normal="$12.50" intro="$5" period="/tech/month" />
+            <p className="text-sm text-slate-500 mb-6">Optional add-on per inspector</p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              NZTA-compliant digital WOF inspection forms. Capture checks, signatures, and issue
+              certificates — all from the app.
+            </p>
+          </div>
+
+          {/* Example calculator */}
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Example cost</h3>
+
+            <div className="space-y-4">
+              {[
+                { label: '1 admin + 2 techs', cost: '$45/mo', sub: '$25 + 2 × $10' },
+                { label: '1 admin + 4 techs', cost: '$65/mo', sub: '$25 + 4 × $10' },
+                { label: '1 admin + 4 techs + WOF', cost: '$85/mo', sub: '$25 + 4 × $10 + 4 × $5' },
+              ].map((ex) => (
+                <div key={ex.label} className="flex items-center justify-between py-3 border-b border-slate-700/50 last:border-0">
+                  <div>
+                    <p className="text-sm font-semibold text-white">{ex.label}</p>
+                    <p className="text-xs text-slate-500 mt-0.5">{ex.sub}</p>
+                  </div>
+                  <span className="text-sm font-bold text-brand-400">{ex.cost}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 p-4 rounded-xl bg-slate-700/50 border border-slate-600/50">
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Introductory pricing. Start with a 28-day free trial — no credit card needed.
+              </p>
+            </div>
+
+            <a
+              href="#contact"
+              className="mt-4 flex items-center gap-1.5 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors"
+            >
+              Questions? Talk to us
+              <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
