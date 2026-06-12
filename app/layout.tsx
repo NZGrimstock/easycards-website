@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import FeedbackButton from '@/components/FeedbackButton'
 
 export const metadata: Metadata = {
   title: 'EasyCards — Digital Job Cards for NZ Workshops',
@@ -19,7 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-NZ">
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {children}
+        <FeedbackButton />
+      </body>
     </html>
   )
 }
