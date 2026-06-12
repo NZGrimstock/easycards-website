@@ -14,12 +14,12 @@ const included = [
 function PriceTag({
   normal,
   intro,
-  period = '/month',
+  period,
   featured = false,
 }: {
   normal: string
   intro: string
-  period?: string
+  period: string
   featured?: boolean
 }) {
   return (
@@ -33,8 +33,8 @@ function PriceTag({
         </span>
       </div>
       <div className="flex items-end gap-1">
-        <span className={`text-4xl font-extrabold ${featured ? 'text-white' : 'text-white'}`}>{intro}</span>
-        <span className={`pb-1 ${featured ? 'text-brand-200' : 'text-slate-400'}`}>{period}</span>
+        <span className="text-4xl font-extrabold text-white">{intro}</span>
+        <span className={`pb-1.5 text-sm ${featured ? 'text-brand-200' : 'text-slate-400'}`}>{period}</span>
       </div>
     </div>
   )
@@ -45,7 +45,7 @@ export default function Pricing() {
     <section id="pricing" className="bg-slate-900 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-4">
             Simple pricing
           </div>
@@ -58,31 +58,35 @@ export default function Pricing() {
           </p>
         </div>
 
+        {/* 28-day trial banner */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/20 border border-brand-600/40 text-brand-400 text-sm font-semibold">
+            🎉 28-day free trial — no credit card required
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-4 gap-6 items-stretch">
 
-          {/* Admin seat */}
-          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+          {/* Admin portal */}
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7 flex flex-col">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">Admin portal</h3>
             <PriceTag normal="$49" intro="$25" period="/month" />
-            <p className="text-sm text-slate-500 mb-6">One admin seat included</p>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-500 mt-2 mb-6">One admin seat included</p>
+            <p className="text-sm text-slate-400 leading-relaxed mt-auto">
               Full access to the admin dashboard — create jobs, assign techs, view all reports,
               and manage your workshop from any browser.
             </p>
           </div>
 
           {/* Per technician — featured */}
-          <div className="bg-brand-600 rounded-2xl border border-brand-500 p-7 shadow-2xl shadow-brand-600/30 relative overflow-hidden">
+          <div className="bg-brand-600 rounded-2xl border border-brand-500 p-7 shadow-2xl shadow-brand-600/30 relative overflow-hidden flex flex-col">
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
-            <div className="relative">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold mb-3">
-                28-day free trial
-              </div>
+            <div className="relative flex flex-col flex-1">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-brand-200 mb-3">Per technician</h3>
-              <PriceTag normal="$15" intro="$10" period="/month each" featured />
-              <p className="text-sm text-brand-200 mb-6">Add as many techs as you need</p>
+              <PriceTag normal="$15" intro="$10" period="/tech/month" featured />
+              <p className="text-sm text-brand-200 mt-2 mb-6">Add as many techs as you need</p>
 
-              <ul className="space-y-2.5 mb-8">
+              <ul className="space-y-2.5 mb-8 mt-auto">
                 {included.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-white/90">
                     <CheckCircle size={15} className="text-brand-200 flex-shrink-0" />
@@ -92,7 +96,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="#contact"
+                href="/#contact"
                 className="block text-center py-3.5 rounded-xl bg-white hover:bg-slate-50 text-brand-700 font-bold transition-colors text-sm"
               >
                 Start free trial
@@ -101,21 +105,21 @@ export default function Pricing() {
           </div>
 
           {/* WOF add-on */}
-          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7 flex flex-col">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">WOF module</h3>
             <PriceTag normal="$12.50" intro="$5" period="/tech/month" />
-            <p className="text-sm text-slate-500 mb-6">Optional add-on per inspector</p>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-500 mt-2 mb-6">Optional add-on per inspector</p>
+            <p className="text-sm text-slate-400 leading-relaxed mt-auto">
               NZTA-compliant digital WOF inspection forms. Capture checks, signatures, and issue
               certificates — all from the app.
             </p>
           </div>
 
           {/* Example calculator */}
-          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7">
+          <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7 flex flex-col">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Example cost</h3>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mt-auto">
               {[
                 { label: '1 admin + 2 techs', cost: '$45/mo', sub: '$25 + 2 × $10' },
                 { label: '1 admin + 4 techs', cost: '$65/mo', sub: '$25 + 4 × $10' },
@@ -138,7 +142,7 @@ export default function Pricing() {
             </div>
 
             <a
-              href="#contact"
+              href="/#contact"
               className="mt-4 flex items-center gap-1.5 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors"
             >
               Questions? Talk to us

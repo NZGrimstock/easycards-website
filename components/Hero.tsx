@@ -47,14 +47,14 @@ export default function Hero() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="#pricing"
+                href="/#pricing"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold transition-colors text-base shadow-lg shadow-brand-600/30"
               >
                 Start free trial
                 <ArrowRight size={18} />
               </a>
               <a
-                href="#how-it-works"
+                href="/#how-it-works"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold transition-colors text-base"
               >
                 See how it works

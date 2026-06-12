@@ -2,16 +2,16 @@ import Image from 'next/image'
 
 const links = {
   Product: [
-    { label: 'Features', href: '#features' },
-    { label: 'How it works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Xero integration', href: '#features' },
+    { label: 'Features', href: '/#features' },
+    { label: 'How it works', href: '/#how-it-works' },
+    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Xero integration', href: '/#features' },
   ],
   Support: [
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contact us', href: '#contact' },
-    { label: 'Book a demo', href: '#contact' },
-    { label: 'hello@easycards.co.nz', href: 'mailto:hello@easycards.co.nz' },
+    { label: 'FAQ', href: '/#faq' },
+    { label: 'Contact us', href: '/#contact' },
+    { label: 'Book a demo', href: '/#contact' },
+    { label: 'admin@easycards.co.nz', href: 'mailto:admin@easycards.co.nz' },
   ],
 }
 
@@ -57,8 +57,8 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-600">Made with care in New Zealand.</p>
           <div className="flex gap-5 text-xs text-slate-600">
-            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+            <a href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

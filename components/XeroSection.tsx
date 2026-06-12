@@ -100,10 +100,10 @@ export default function XeroSection() {
             </ul>
 
             <a
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center gap-2 text-accent-600 hover:text-accent-700 font-semibold transition-colors"
             >
-              Book a demo to see Xero live
+              Book a demo to see Easy Cards live
               <ArrowRight size={16} />
             </a>
           </div>

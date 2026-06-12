@@ -89,7 +89,7 @@ export default function HowItWorks() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <a
-            href="#pricing"
+            href="/#pricing"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold transition-colors text-base shadow-lg shadow-brand-600/20"
           >
             Start your free trial today

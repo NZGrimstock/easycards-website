@@ -78,7 +78,7 @@ export default function FAQ() {
           </h2>
           <p className="mt-4 text-lg text-slate-500">
             Can't find what you're looking for?{' '}
-            <a href="#contact" className="text-brand-600 hover:text-brand-700 font-medium">
+            <a href="/#contact" className="text-brand-600 hover:text-brand-700 font-medium">
               Get in touch.
             </a>
           </p>

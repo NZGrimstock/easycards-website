@@ -21,7 +21,7 @@ export default function Contact() {
     const message = data.get('message') as string
 
     const body = `Name: ${name}%0ABusiness: ${business}%0ATechnicians: ${techs}%0AEmail: ${email}%0A%0AMessage: ${message}`
-    window.location.href = `mailto:hello@easycards.co.nz?subject=Enquiry from ${encodeURIComponent(name)}&body=${body}`
+    window.location.href = `mailto:admin@easyforms.co.nz?subject=Enquiry from ${encodeURIComponent(name)}&body=${body}`
 
     setTimeout(() => {
       setSubmitted(true)
@@ -54,8 +54,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-400 font-medium">Email us</p>
-                  <a href="mailto:hello@easycards.co.nz" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
-                    hello@easycards.co.nz
+                  <a href="mailto:admin@easycards.co.nz" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
+                    admin@easycards.co.nz
                   </a>
                 </div>
               </div>

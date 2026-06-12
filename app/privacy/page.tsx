@@ -1,11 +1,7 @@
-import type { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-
-export const metadata: Metadata = {
-  title: 'Privacy Policy — EasyCards',
-  description: 'Privacy Policy for EasyCards — how we collect, use, and protect your personal information.',
-}
 
 export default function PrivacyPage() {
   return (
