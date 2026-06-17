@@ -3,6 +3,10 @@ import './globals.css'
 import FeedbackButton from '@/components/FeedbackButton'
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   title: 'EasyCards — Digital Job Cards for NZ Workshops',
   description:
     'Replace paper job cards with real-time digital job management. Create jobs in the admin portal, assign to technicians instantly, and batch-invoice to Xero when complete. Built for NZ mechanics, panelbeaters and workshops.',
