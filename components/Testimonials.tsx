@@ -17,7 +17,7 @@ const reviewStructuredData = {
   '@type': 'Review',
   itemReviewed: {
     '@type': 'SoftwareApplication',
-    name: 'EasyCards',
+    name: 'Easy Cards',
     applicationCategory: 'BusinessApplication',
   },
   reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
@@ -57,7 +57,7 @@ export default function Testimonials() {
             Workshops are running smoother
           </h2>
           <p className="mt-4 text-lg text-slate-500">
-            Real feedback from a New Zealand workshop using EasyCards every day.
+            Real feedback from a New Zealand workshop using Easy Cards every day.
           </p>
         </div>
 

@@ -24,7 +24,7 @@ const steps = [
     icon: CheckSquare,
     title: 'Tech completes the job',
     description:
-      'Your technician logs time, adds parts used, attaches photos, and marks the job complete — all from the EasyCards mobile app.',
+      'Your technician logs time, adds parts used, attaches photos, and marks the job complete — all from the Easy Cards mobile app.',
     color: 'text-accent-600 bg-accent-50 border-accent-200',
     iconColor: 'text-accent-600',
   },
@@ -52,7 +52,7 @@ export default function HowItWorks() {
             Up and running in minutes
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-            No training days needed. EasyCards works the way your workshop already does — just
+            No training days needed. Easy Cards works the way your workshop already does — just
             faster and without the paper.
           </p>
         </div>

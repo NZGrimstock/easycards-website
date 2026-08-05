@@ -23,10 +23,10 @@ export default function TermsPage() {
 
           <div className="prose-policy">
 
-            <p>These Terms of Service ("Terms") govern your use of EasyCards, a digital job card and workshop management platform operated by Industry Forms Limited ("we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
+            <p>These Terms of Service ("Terms") govern your use of Easy Cards, a digital job card and workshop management platform operated by Industry Forms Limited ("we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you must not use the Service.</p>
 
             <h2>1. The Service</h2>
-            <p>EasyCards provides a cloud-based workshop management system including a web admin portal, mobile application for technicians, and related integrations (collectively, the "Service"). The Service is intended for use by automotive workshops, panelbeaters, and similar trade businesses in New Zealand and Australia.</p>
+            <p>Easy Cards provides a cloud-based workshop management system including a web admin portal, mobile application for technicians, and related integrations (collectively, the "Service"). The Service is intended for use by automotive workshops, panelbeaters, and similar trade businesses in New Zealand and Australia.</p>
 
             <h2>2. Accounts</h2>
             <h3>2.1 Registration</h3>

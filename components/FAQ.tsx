@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: 'What devices does the mobile app support?',
-    a: 'The EasyCards mobile app is available for iOS (iPhone) and Android phones. Your technicians download it from the App Store or Google Play and sign in with their account.',
+    a: 'The Easy Cards mobile app is available for iOS (iPhone) and Android phones. Your technicians download it from the App Store or Google Play and sign in with their account.',
   },
   {
     q: 'Can I cancel anytime?',
@@ -26,11 +26,11 @@ const faqs = [
   },
   {
     q: 'Do my technicians need to be tech-savvy?',
-    a: "EasyCards is designed to be simple. Most technicians are up and running in under five minutes. The mobile app is clean and straightforward — if they can use a smartphone, they'll be fine.",
+    a: "Easy Cards is designed to be simple. Most technicians are up and running in under five minutes. The mobile app is clean and straightforward — if they can use a smartphone, they'll be fine.",
   },
   {
     q: 'Does it work for panel shops and specialist trades?',
-    a: 'Yes. EasyCards works for any workshop-based trade — mechanical, panelbeating, WOF stations, auto electrical, tyre shops, and more. Job cards are flexible enough to suit any workflow.',
+    a: 'Yes. Easy Cards works for any workshop-based trade — mechanical, panelbeating, WOF stations, auto electrical, tyre shops, and more. Job cards are flexible enough to suit any workflow.',
   },
   {
     q: 'Is my data secure?',

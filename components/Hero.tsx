@@ -31,7 +31,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-lg">
-              EasyCards replaces paper job cards with a real-time digital system. Create jobs in
+              Easy Cards replaces paper job cards with a real-time digital system. Create jobs in
               seconds, assign to your techs instantly, and invoice through Easy Cards or Xero when
               the work is done.
             </p>
@@ -76,7 +76,7 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
-                <span className="text-slate-400 text-xs">EasyCards — Admin Portal</span>
+                <span className="text-slate-400 text-xs">Easy Cards — Admin Portal</span>
               </div>
 
               <div className="p-5 space-y-3">

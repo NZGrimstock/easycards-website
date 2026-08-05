@@ -1,6 +1,6 @@
-# EasyCards
+# Easy Cards
 
-> EasyCards is real-time digital job card and workshop management software for New Zealand automotive workshops, mechanics, panelbeaters, and WOF inspectors. It replaces paper job cards with an admin web portal and a mobile app, and invoices directly through Xero or Easy Cards itself.
+> Easy Cards is real-time digital job card and workshop management software for New Zealand automotive workshops, mechanics, panelbeaters, and WOF inspectors. It replaces paper job cards with an admin web portal and a mobile app, and invoices directly through Xero or Easy Cards itself.
 
 ## Product
 

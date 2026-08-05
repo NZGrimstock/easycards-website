@@ -22,13 +22,13 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-2">
-            <Image src="/logo.png" alt="EasyCards" width={130} height={36} className="h-8 w-auto mb-4" />
+            <Image src="/logo.png" alt="Easy Cards" width={130} height={36} className="h-8 w-auto mb-4" />
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Real-time digital job cards for NZ workshops. Built for mechanics, panelbeaters and
               trades that need to get the work done.
             </p>
             <p className="mt-5 text-xs text-slate-600">
-              &copy; {new Date().getFullYear()} EasyCards NZ Ltd. All rights reserved.
+              &copy; {new Date().getFullYear()} Easy Cards NZ Ltd. All rights reserved.
             </p>
           </div>
 

@@ -6,27 +6,42 @@ import { Send, CheckCircle, MapPin, Mail } from 'lucide-react'
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
+    setError('')
 
-    const form = e.currentTarget
-    const data = new FormData(form)
+    const data = new FormData(e.currentTarget)
 
-    const name = data.get('name') as string
-    const email = data.get('email') as string
-    const business = data.get('business') as string
-    const techs = data.get('techs') as string
-    const message = data.get('message') as string
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          business: data.get('business'),
+          techs: data.get('techs'),
+          message: data.get('message'),
+          company: data.get('company'), // honeypot
+        }),
+      })
 
-    const body = `Name: ${name}%0ABusiness: ${business}%0ATechnicians: ${techs}%0AEmail: ${email}%0A%0AMessage: ${message}`
-    window.location.href = `mailto:admin@easycards.co.nz?subject=Enquiry from ${encodeURIComponent(name)}&body=${body}`
+      const result = await response.json().catch(() => ({}))
 
-    setTimeout(() => {
+      if (!response.ok) {
+        setError(result.error || 'Something went wrong. Please try again.')
+        return
+      }
+
       setSubmitted(true)
+    } catch {
+      setError('Could not reach our server. Please check your connection and try again.')
+    } finally {
       setLoading(false)
-    }, 400)
+    }
   }
 
   return (
@@ -100,6 +115,16 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot — hidden from users, catches bots */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px opacity-0"
+                />
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-600 mb-1.5">Your name</label>
@@ -163,6 +188,12 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <p role="alert" className="text-sm text-brand-600 bg-brand-50 border border-brand-200 rounded-lg px-3.5 py-2.5">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
                   disabled={loading}
@@ -171,7 +202,7 @@ export default function Contact() {
                   {loading ? 'Sending...' : (
                     <>
                       Send enquiry
-                      <Send size={15} />
+                      <Send size={15} aria-hidden="true" />
                     </>
                   )}
                 </button>

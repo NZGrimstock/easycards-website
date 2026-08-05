@@ -1,16 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import './globals.css'
 import FeedbackButton from '@/components/FeedbackButton'
 
-const inter = Inter({
+// Roboto ships 100/300/400/500/700/900 — no 600 or 800. Tailwind's semibold and
+// extrabold are remapped onto real weights in tailwind.config.ts so nothing is
+// synthesised into faux-bold by the browser.
+const roboto = Roboto({
   subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-roboto',
 })
 
 const siteUrl = 'https://www.easycards.co.nz'
-const title = 'EasyCards — Digital Job Cards for NZ Workshops'
+const title = 'Easy Cards — Digital Job Cards for NZ Workshops'
 const description =
   'Replace paper job cards with real-time digital job management. Create jobs in the admin portal, assign to technicians instantly, and batch-invoice via Easy Cards or Xero when complete. Built for NZ mechanics, panelbeaters and workshops.'
 
@@ -22,7 +26,7 @@ export const metadata: Metadata = {
   },
   title: {
     default: title,
-    template: '%s — EasyCards',
+    template: '%s — Easy Cards',
   },
   description,
   keywords: [
@@ -53,7 +57,7 @@ export const metadata: Metadata = {
     title,
     description: 'Real-time job cards, team assignment and Xero invoicing for NZ workshops.',
     url: siteUrl,
-    siteName: 'EasyCards',
+    siteName: 'Easy Cards',
     locale: 'en_NZ',
     type: 'website',
     // Image comes from app/opengraph-image.tsx
@@ -71,7 +75,7 @@ const structuredData = {
     {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
-      name: 'EasyCards',
+      name: 'Easy Cards',
       legalName: 'Industry Forms Limited',
       url: siteUrl,
       logo: `${siteUrl}/logo.png`,
@@ -81,7 +85,7 @@ const structuredData = {
     },
     {
       '@type': 'SoftwareApplication',
-      name: 'EasyCards',
+      name: 'Easy Cards',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',
       url: siteUrl,
@@ -98,7 +102,7 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
-      name: 'EasyCards',
+      name: 'Easy Cards',
       publisher: { '@id': `${siteUrl}/#organization` },
     },
   ],
@@ -106,7 +110,7 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-NZ" className={inter.variable}>
+    <html lang="en-NZ" className={roboto.variable}>
       <body className="font-sans">
         <a
           href="#main"

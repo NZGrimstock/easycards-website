@@ -1,7 +1,7 @@
 import { CheckCircle, ArrowRight } from 'lucide-react'
 
 const xeroPoints = [
-  'Completed jobs queue automatically in EasyCards',
+  'Completed jobs queue automatically in Easy Cards',
   'Review job totals, labour, parts and consumables',
   'Send one or all jobs to Xero in a single click',
   'Invoices appear in Xero instantly — no re-keying',
@@ -22,7 +22,7 @@ export default function XeroSection() {
             <div className="relative bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden">
               {/* Header bar */}
               <div className="bg-accent-800 px-5 py-3 flex items-center justify-between">
-                <span className="text-slate-300 text-xs">EasyCards — Billing Queue</span>
+                <span className="text-slate-300 text-xs">Easy Cards — Billing Queue</span>
                 <span className="text-accent-300 text-xs font-semibold">3 jobs ready</span>
               </div>
 
@@ -85,7 +85,7 @@ export default function XeroSection() {
             </h2>
 
             <p className="text-lg text-slate-500 leading-relaxed mb-8">
-              Stop manually re-entering job details into Xero. EasyCards connects directly to your
+              Stop manually re-entering job details into Xero. Easy Cards connects directly to your
               Xero account and pushes completed jobs as invoices — automatically including labour,
               parts and consumables.
             </p>
