@@ -16,6 +16,12 @@ function field(value: unknown, max: number): string {
   return typeof value === 'string' ? value.trim().slice(0, max) : ''
 }
 
+// Anything interpolated into the subject line gets CR/LF stripped. Resend's JSON
+// API encodes headers itself, but this removes the header-injection shape entirely.
+function singleLine(value: string): string {
+  return value.replace(/[\r\n]+/g, ' ').trim()
+}
+
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, '&amp;')
@@ -48,6 +54,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
   }
   if (isFeedback ? !message : !name || !business) {
+    // (ternary binds looser than ||, so the else branch is `!name || !business`)
     return NextResponse.json({ error: 'Please fill in the required fields.' }, { status: 400 })
   }
 
@@ -86,8 +93,8 @@ export async function POST(request: Request) {
         to: [TO_EMAIL],
         reply_to: email,
         subject: isFeedback
-          ? `Website feedback from ${email}`
-          : `Enquiry from ${name}${business ? ` — ${business}` : ''}`,
+          ? `Website feedback from ${singleLine(email)}`
+          : singleLine(`Enquiry from ${name}${business ? ` — ${business}` : ''}`),
         html,
       }),
     })

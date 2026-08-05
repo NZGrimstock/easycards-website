@@ -1,4 +1,5 @@
 import { Star } from 'lucide-react'
+import JsonLd from '@/components/JsonLd'
 
 const testimonials = [
   {
@@ -43,10 +44,7 @@ function Stars() {
 export default function Testimonials() {
   return (
     <section id="testimonials" aria-labelledby="testimonials-heading" className="bg-white py-24 lg:py-32">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewStructuredData) }}
-      />
+      <JsonLd data={reviewStructuredData} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-16">

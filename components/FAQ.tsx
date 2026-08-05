@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import JsonLd from '@/components/JsonLd'
 
 const faqs = [
   {
@@ -88,10 +89,7 @@ const faqStructuredData = {
 export default function FAQ() {
   return (
     <section id="faq" className="bg-slate-50 py-24 lg:py-32">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-      />
+      <JsonLd data={faqStructuredData} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">

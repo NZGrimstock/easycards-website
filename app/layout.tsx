@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 import FeedbackButton from '@/components/FeedbackButton'
+import JsonLd from '@/components/JsonLd'
 
 // Roboto ships 100/300/400/500/700/900 — no 600 or 800. Tailwind's semibold and
 // extrabold are remapped onto real weights in tailwind.config.ts so nothing is
@@ -118,10 +119,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd data={structuredData} />
         {children}
         <FeedbackButton />
       </body>
