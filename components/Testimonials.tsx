@@ -16,11 +16,9 @@ const testimonials = [
 const reviewStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Review',
-  itemReviewed: {
-    '@type': 'SoftwareApplication',
-    name: 'Easy Cards',
-    applicationCategory: 'BusinessApplication',
-  },
+  // Points at the SoftwareApplication node declared in app/layout.tsx. Without the
+  // shared @id, Google treats this as a review of an unrelated second app.
+  itemReviewed: { '@id': 'https://www.easycards.co.nz/#software' },
   reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
   reviewBody: testimonials[0].quote,
   author: {

@@ -86,6 +86,7 @@ const structuredData = {
     },
     {
       '@type': 'SoftwareApplication',
+      '@id': `${siteUrl}/#software`,
       name: 'Easy Cards',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',

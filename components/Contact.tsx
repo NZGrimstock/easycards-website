@@ -25,7 +25,7 @@ export default function Contact() {
           business: data.get('business'),
           techs: data.get('techs'),
           message: data.get('message'),
-          company: data.get('company'), // honeypot
+          contact_ref: data.get('contact_ref'), // honeypot
         }),
       })
 
@@ -115,10 +115,11 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Honeypot — hidden from users, catches bots */}
+                {/* Honeypot — hidden from users, catches bots. Name is deliberately
+                    meaningless so browser autofill has no heuristic to match. */}
                 <input
                   type="text"
-                  name="company"
+                  name="contact_ref"
                   tabIndex={-1}
                   autoComplete="off"
                   aria-hidden="true"

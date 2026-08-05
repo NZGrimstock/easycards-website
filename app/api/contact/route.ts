@@ -37,9 +37,17 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
   }
+  // `null` and arrays are valid JSON but not valid payloads — .json() is typed
+  // `any`, so without this a body of `null` throws on the first property read.
+  if (payload === null || typeof payload !== 'object' || Array.isArray(payload)) {
+    return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
+  }
 
   // Honeypot: real users never see or fill this. Accept silently so bots don't retry.
-  if (field(payload.company, 100)) {
+  // Deliberately NOT named company/organisation/address — those are strong browser
+  // autofill signals, and a false positive here silently discards a real enquiry.
+  if (field(payload.contact_ref, 100)) {
+    console.warn('Contact form rejected by honeypot.')
     return NextResponse.json({ ok: true })
   }
 
