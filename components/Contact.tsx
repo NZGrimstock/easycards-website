@@ -21,7 +21,7 @@ export default function Contact() {
     const message = data.get('message') as string
 
     const body = `Name: ${name}%0ABusiness: ${business}%0ATechnicians: ${techs}%0AEmail: ${email}%0A%0AMessage: ${message}`
-    window.location.href = `mailto:admin@easyforms.co.nz?subject=Enquiry from ${encodeURIComponent(name)}&body=${body}`
+    window.location.href = `mailto:admin@easycards.co.nz?subject=Enquiry from ${encodeURIComponent(name)}&body=${body}`
 
     setTimeout(() => {
       setSubmitted(true)
@@ -102,20 +102,24 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">Your name</label>
+                    <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-600 mb-1.5">Your name</label>
                     <input
+                      id="contact-name"
                       name="name"
                       required
+                      autoComplete="name"
                       placeholder="Dean Hartley"
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">Email address</label>
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-600 mb-1.5">Email address</label>
                     <input
+                      id="contact-email"
                       name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       placeholder="dean@workshop.co.nz"
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
                     />
@@ -123,18 +127,21 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5">Workshop name</label>
+                  <label htmlFor="contact-business" className="block text-xs font-semibold text-slate-600 mb-1.5">Workshop name</label>
                   <input
+                    id="contact-business"
                     name="business"
                     required
+                    autoComplete="organization"
                     placeholder="Hartley Auto"
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5">How many technicians?</label>
+                  <label htmlFor="contact-techs" className="block text-xs font-semibold text-slate-600 mb-1.5">How many technicians?</label>
                   <select
+                    id="contact-techs"
                     name="techs"
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
                   >
@@ -146,8 +153,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5">Message (optional)</label>
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-600 mb-1.5">Message (optional)</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     rows={3}
                     placeholder="Tell us about your workshop or ask us anything..."

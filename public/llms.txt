@@ -1,0 +1,28 @@
+# EasyCards
+
+> EasyCards is real-time digital job card and workshop management software for New Zealand automotive workshops, mechanics, panelbeaters, and WOF inspectors. It replaces paper job cards with an admin web portal and a mobile app, and invoices directly through Xero or Easy Cards itself.
+
+## Product
+
+- Admin web portal to create job cards, assign technicians, and track job status in real time.
+- Native iOS and Android app for technicians: job details, time and labour logging, parts tracking, photos, push notifications.
+- Digital WOF inspection module (NZTA-compliant) for warrant of fitness checks and certificates.
+- Batch invoicing straight from Easy Cards or via one-click sync to Xero — no re-keying.
+
+## Pricing
+
+- Admin portal: $25/month intro (normally $49/month), one admin seat included.
+- Per technician: $10/month intro (normally $15/month), unlimited technicians.
+- WOF module add-on: $5/tech/month intro (normally $12.50), optional.
+- 28-day free trial, no credit card required, cancel anytime.
+
+## Pages
+
+- [Homepage](https://www.easycards.co.nz/): overview, features, pricing, FAQ, and contact.
+- [Privacy Policy](https://www.easycards.co.nz/privacy)
+- [Terms of Service](https://www.easycards.co.nz/terms)
+
+## Contact
+
+- Email: admin@easycards.co.nz
+- Operated by Industry Forms Limited, New Zealand.

@@ -50,11 +50,11 @@ export default function XeroSection() {
                   </div>
                 ))}
 
-                {/* Send to Xero button */}
-                <button className="w-full mt-2 py-3 rounded-xl bg-accent-600 hover:bg-accent-700 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+                {/* Send to Xero button — illustrative mockup, not interactive */}
+                <div className="w-full mt-2 py-3 rounded-xl bg-accent-600 text-white font-bold text-sm flex items-center justify-center gap-2">
                   Send all 3 to Xero
-                  <ArrowRight size={16} />
-                </button>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </div>
 
                 <p className="text-center text-xs text-slate-500 pb-1">Total: $1,570.00 · 3 invoices</p>
               </div>

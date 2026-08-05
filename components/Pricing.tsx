@@ -86,7 +86,7 @@ export default function Pricing() {
               <PriceTag normal="$15" intro="$10" period="/tech/month" featured />
               <p className="text-sm text-brand-200 mt-2 mb-6">Add as many techs as you need</p>
 
-              <ul className="space-y-2.5 mb-8 mt-auto">
+              <ul className="space-y-2.5 mt-auto">
                 {included.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-white/90">
                     <CheckCircle size={15} className="text-brand-200 flex-shrink-0" />
@@ -94,13 +94,6 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-
-              <a
-                href="/#contact"
-                className="block text-center py-3.5 rounded-xl bg-white hover:bg-slate-50 text-brand-700 font-bold transition-colors text-sm"
-              >
-                Start free trial
-              </a>
             </div>
           </div>
 
@@ -149,6 +142,20 @@ export default function Pricing() {
               <ArrowRight size={14} />
             </a>
           </div>
+        </div>
+
+        {/* Single CTA spanning the full width of all pricing boxes */}
+        <div className="mt-6">
+          <a
+            href="/#contact"
+            className="flex w-full items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold transition-colors text-base shadow-lg shadow-brand-600/30"
+          >
+            Start free trial
+            <ArrowRight size={18} aria-hidden="true" />
+          </a>
+          <p className="mt-3 text-center text-sm text-slate-500">
+            28 days free · No credit card required
+          </p>
         </div>
       </div>
     </section>

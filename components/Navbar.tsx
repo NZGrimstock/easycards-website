@@ -31,8 +31,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="EasyCards" width={140} height={40} className="h-9 w-auto" />
+          <a href="/" className="flex items-center gap-2" aria-label="EasyCards home">
+            <Image
+              src="/logo.png"
+              alt="EasyCards"
+              width={140}
+              height={40}
+              priority
+              className="h-9 w-auto"
+            />
           </a>
 
           {/* Desktop nav */}
@@ -68,16 +75,18 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden text-slate-300 hover:text-white p-2"
-            aria-label="Toggle menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-slate-900 border-t border-slate-800 px-4 py-6 space-y-4">
+        <div id="mobile-menu" className="lg:hidden bg-slate-900 border-t border-slate-800 px-4 py-6 space-y-4">
           {links.map((l) => (
             <a
               key={l.href}

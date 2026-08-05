@@ -32,8 +32,8 @@ export default function Hero() {
 
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-lg">
               EasyCards replaces paper job cards with a real-time digital system. Create jobs in
-              seconds, assign to your techs instantly, and invoice through Xero when the work is
-              done.
+              seconds, assign to your techs instantly, and invoice through Easy Cards or Xero when
+              the work is done.
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">

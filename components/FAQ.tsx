@@ -38,25 +38,36 @@ const faqs = [
   },
 ]
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, id }: { q: string; a: string; id: string }) {
   const [open, setOpen] = useState(false)
 
   return (
     <div className="border-b border-slate-200 last:border-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-start justify-between gap-4 py-5 text-left group"
-      >
-        <span className="text-base font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">
-          {q}
-        </span>
-        <ChevronDown
-          size={20}
-          className={`flex-shrink-0 text-slate-400 transition-transform duration-200 mt-0.5 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+      <h3>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={`${id}-answer`}
+          id={`${id}-question`}
+          className="w-full flex items-start justify-between gap-4 py-5 text-left group"
+        >
+          <span className="text-base font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">
+            {q}
+          </span>
+          <ChevronDown
+            size={20}
+            aria-hidden="true"
+            className={`flex-shrink-0 text-slate-400 transition-transform duration-200 mt-0.5 ${open ? 'rotate-180' : ''}`}
+          />
+        </button>
+      </h3>
       {open && (
-        <div className="pb-5 text-sm text-slate-500 leading-relaxed -mt-1">
+        <div
+          id={`${id}-answer`}
+          role="region"
+          aria-labelledby={`${id}-question`}
+          className="pb-5 text-sm text-slate-500 leading-relaxed -mt-1"
+        >
           {a}
         </div>
       )}
@@ -64,9 +75,23 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   )
 }
 
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+}
+
 export default function FAQ() {
   return (
     <section id="faq" className="bg-slate-50 py-24 lg:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -86,8 +111,8 @@ export default function FAQ() {
 
         {/* Accordion */}
         <div className="bg-white rounded-2xl border border-slate-200 px-6 sm:px-8 divide-y-0">
-          {faqs.map((faq) => (
-            <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+          {faqs.map((faq, i) => (
+            <FAQItem key={faq.q} q={faq.q} a={faq.a} id={`faq-${i}`} />
           ))}
         </div>
       </div>

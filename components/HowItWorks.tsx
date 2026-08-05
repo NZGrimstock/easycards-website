@@ -31,9 +31,9 @@ const steps = [
   {
     number: '04',
     icon: Receipt,
-    title: 'Batch invoice via Xero',
+    title: 'Batch invoice via Easy Cards or Xero',
     description:
-      'Completed jobs flow into your billing queue. Review, then send them straight to Xero in one click. Invoicing done.',
+      'Completed jobs flow into your billing queue. Review, then invoice straight from Easy Cards or send them to Xero in one click. Invoicing done.',
     color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
     iconColor: 'text-emerald-600',
   },
