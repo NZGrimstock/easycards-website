@@ -28,7 +28,8 @@ export default function Footer() {
               trades that need to get the work done.
             </p>
             <p className="mt-5 text-xs text-slate-600">
-              &copy; {new Date().getFullYear()} Easy Cards NZ Ltd. All rights reserved.
+              &copy; {new Date().getFullYear()} Industry Forms Ltd, trading as Easy Cards. All
+              rights reserved.
             </p>
           </div>
 
