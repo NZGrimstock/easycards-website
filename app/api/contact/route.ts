@@ -12,6 +12,39 @@ const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'admin@easycards.co.nz'
 // Must be an address on a domain verified in Resend.
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'website@easycards.co.nz'
 
+// ponytail: in-memory sliding window, per server instance. Vercel may run this
+// route on several instances at once, so a determined attacker gets roughly
+// N x MAX_PER_WINDOW. That is fine for stopping a naive loop or an accidental
+// double-submit; swap in Upstash Redis (shared counter) or Vercel BotID if real
+// abuse shows up. Deliberately not silent — callers get a 429 and Retry-After.
+const WINDOW_MS = 10 * 60 * 1000
+const MAX_PER_WINDOW = 5
+const MAX_TRACKED_IPS = 5000
+const hits = new Map<string, number[]>()
+
+function rateLimit(ip: string): { limited: boolean; retryAfter: number } {
+  const now = Date.now()
+  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
+
+  if (recent.length >= MAX_PER_WINDOW) {
+    hits.set(ip, recent)
+    return { limited: true, retryAfter: Math.ceil((WINDOW_MS - (now - recent[0])) / 1000) }
+  }
+
+  recent.push(now)
+  hits.set(ip, recent)
+
+  // Drop keys whose window has fully expired so the map cannot grow unbounded.
+  if (hits.size > MAX_TRACKED_IPS) {
+    // Deleting during Map.forEach is safe — entries already visited are unaffected.
+    hits.forEach((times, key) => {
+      if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(key)
+    })
+  }
+
+  return { limited: false, retryAfter: 0 }
+}
+
 function field(value: unknown, max: number): string {
   return typeof value === 'string' ? value.trim().slice(0, max) : ''
 }
@@ -31,6 +64,16 @@ function escapeHtml(value: string): string {
 }
 
 export async function POST(request: Request) {
+  // Vercel always sets x-forwarded-for; the client IP is the first entry.
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown'
+  const { limited, retryAfter } = rateLimit(ip)
+  if (limited) {
+    return NextResponse.json(
+      { error: 'Too many messages from this connection. Please try again shortly.' },
+      { status: 429, headers: { 'Retry-After': String(retryAfter) } },
+    )
+  }
+
   let payload: Record<string, unknown>
   try {
     payload = await request.json()

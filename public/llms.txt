@@ -6,14 +6,14 @@
 
 - Admin web portal to create job cards, assign technicians, and track job status in real time.
 - Native iOS and Android app for technicians: job details, time and labour logging, parts tracking, photos, push notifications.
-- Digital WOF inspection module (NZTA-compliant) for warrant of fitness checks and certificates.
+- Digital WOF inspection module (NZTA-compliant) for warrant of fitness checks and certificates — coming soon, not yet available.
 - Batch invoicing straight from Easy Cards or via one-click sync to Xero — no re-keying.
 
 ## Pricing
 
 - Admin portal: $25/month intro (normally $49/month), one admin seat included.
 - Per technician: $10/month intro (normally $15/month), unlimited technicians.
-- WOF module add-on: $5/tech/month intro (normally $12.50), optional.
+- WOF module add-on: $5/tech/month intro (normally $12.50), optional — coming soon.
 - 28-day free trial, no credit card required, cancel anytime.
 
 ## Pages

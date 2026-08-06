@@ -99,12 +99,17 @@ export default function Pricing() {
 
           {/* WOF add-on */}
           <div className="bg-slate-800 rounded-2xl border border-slate-700 p-7 flex flex-col">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">WOF module</h3>
+            <div className="flex items-center gap-2 mb-3">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400">WOF module</h3>
+              <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                Coming soon
+              </span>
+            </div>
             <PriceTag normal="$12.50" intro="$5" period="/tech/month" />
             <p className="text-sm text-slate-500 mt-2 mb-6">Optional add-on per inspector</p>
             <p className="text-sm text-slate-400 leading-relaxed mt-auto">
               NZTA-compliant digital WOF inspection forms. Capture checks, signatures, and issue
-              certificates — all from the app.
+              certificates — all from the app. Coming soon.
             </p>
           </div>
 
