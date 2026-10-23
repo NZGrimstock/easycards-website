@@ -1,4 +1,5 @@
 import { CheckCircle, ArrowRight } from 'lucide-react'
+import { BUY_NOW_URL } from '../lib/links'
 
 const included = [
   'Full admin web portal',
