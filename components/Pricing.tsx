@@ -151,15 +151,24 @@ export default function Pricing() {
 
         {/* Single CTA spanning the full width of all pricing boxes */}
         <div className="mt-6">
-          <a
-            href="/#contact"
-            className="flex w-full items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold transition-colors text-base shadow-lg shadow-brand-600/30"
-          >
-            Start free trial
-            <ArrowRight size={18} aria-hidden="true" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="/#contact"
+              className="flex flex-1 items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold transition-colors text-base shadow-lg shadow-brand-600/30"
+            >
+              Start free trial
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
+            <a
+              href={BUY_NOW_URL}
+              className="flex flex-1 items-center justify-center gap-2 px-10 py-4 rounded-2xl border border-slate-600 hover:border-slate-400 bg-slate-800/60 text-white font-bold transition-colors text-base"
+            >
+              Buy now
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
+          </div>
           <p className="mt-3 text-center text-sm text-slate-500">
-            28 days free · No credit card required
+            28 days free · No credit card required · or buy now and sign in to subscribe
           </p>
         </div>
       </div>

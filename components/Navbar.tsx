@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
+import { APP_LOGIN_URL, BUY_NOW_URL } from '../lib/links'
 
 const links = [
   { label: 'Features', href: '/#features' },
@@ -64,6 +65,12 @@ export default function Navbar() {
               Book a demo
             </a>
             <a
+              href={APP_LOGIN_URL}
+              className="inline-flex items-center px-4 py-2 rounded-lg border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white text-sm font-semibold transition-colors"
+            >
+              Easy Cards app
+            </a>
+            <a
               href="/#pricing"
               className="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition-colors"
             >
@@ -104,6 +111,12 @@ export default function Navbar() {
               className="block text-center py-2 text-sm font-medium text-slate-300 hover:text-white"
             >
               Book a demo
+            </a>
+            <a
+              href={APP_LOGIN_URL}
+              className="block text-center py-3 rounded-lg border border-slate-600 text-slate-200 text-sm font-semibold"
+            >
+              Easy Cards app
             </a>
             <a
               href="/#pricing"
