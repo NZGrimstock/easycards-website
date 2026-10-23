@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'How many team members can I add?',
-    a: 'As many as you need. Each additional technician is $10 per month. If you have seasonal staff, you can add or remove team members as your team changes.',
+    a: 'As many as you need. Each additional technician is $10 + GST per month. If you have seasonal staff, you can add or remove team members as your team changes.',
   },
   {
     q: 'Do my technicians need to be tech-savvy?',

@@ -35,7 +35,7 @@ function PriceTag({
       </div>
       <div className="flex items-end gap-1">
         <span className="text-4xl font-extrabold text-white">{intro}</span>
-        <span className={`pb-1.5 text-sm ${featured ? 'text-brand-200' : 'text-slate-400'}`}>{period}</span>
+        <span className={`pb-1.5 text-sm ${featured ? 'text-brand-200' : 'text-slate-400'}`}>{period} + GST</span>
       </div>
     </div>
   )
@@ -55,7 +55,7 @@ export default function Pricing() {
           </h2>
           <p className="mt-4 text-lg text-slate-400 leading-relaxed">
             One flat rate for the admin portal, then a small monthly fee per technician. No
-            surprises, no lock-in.
+            surprises, no lock-in. All prices exclude GST.
           </p>
         </div>
 
@@ -136,7 +136,7 @@ export default function Pricing() {
 
             <div className="mt-6 p-4 rounded-xl bg-slate-700/50 border border-slate-600/50">
               <p className="text-xs text-slate-400 leading-relaxed">
-                Introductory pricing. Start with a 28-day free trial — no credit card needed.
+                All prices exclude GST. Introductory pricing. Start with a 28-day free trial — no credit card needed.
               </p>
             </div>
 
@@ -169,7 +169,7 @@ export default function Pricing() {
             </a>
           </div>
           <p className="mt-3 text-center text-sm text-slate-500">
-            28 days free · No credit card required · or buy now and sign in to subscribe
+            28 days free · No credit card required · or buy now and sign in to subscribe · All prices exclude GST
           </p>
         </div>
       </div>
